@@ -75,19 +75,38 @@ jobs:
           name: forge-${{ matrix.target }}
           path: forge-${{ matrix.target }}.${{ matrix.archive }}
 
+  publish-crate:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: publish to crates.io
+        run: cargo publish --token ${{ secrets.CARGO_REGISTRY_TOKEN }}
+
   release:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - uses: actions/download-artifact@v4
         with:
           path: artifacts
+
+      - name: compute checksums
+        run: |
+          cd artifacts
+          find . -type f \( -name "*.tar.gz" -o -name "*.zip" \) -exec sha256sum {} \; | sort > ../checksums.txt
+          cd ..
 
       - name: create release
         uses: softprops/action-gh-release@v2
         with:
           generate_release_notes: true
-          files: artifacts/**/*
+          files: |
+            artifacts/**/*
+            checksums.txt
           body: |
             ## install
 
@@ -96,5 +115,39 @@ jobs:
             cargo install forge
             ```
 
+            ### homebrew (macos/linux)
+            ```
+            brew tap afonp/tap
+            brew install forge
+            ```
+
+            ### winget (windows)
+            ```
+            winget install afonp.forge
+            ```
+
             ### download binary
             download the archive for your platform from the assets below, extract it, and place the `forge` binary in your `$PATH`.
+
+  update-homebrew:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: update homebrew tap
+        uses: mislav/bump-homebrew-formula-action@v3
+        with:
+          formula-name: forge
+          homebrew-tap: afonp/homebrew-tap
+          download-url: https://github.com/afonp/forge/releases/download/${{ github.ref_name }}/forge-x86_64-apple-darwin.tar.gz
+        env:
+          COMMITTER_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+
+  update-winget:
+    needs: release
+    runs-on: windows-latest
+    steps:
+      - uses: vedantmgoyal9/winget-releaser@v2
+        with:
+          identifier: afonp.forge
+          installers-regex: 'forge-x86_64-pc-windows-msvc\.zip'
+          token: ${{ secrets.WINGET_TOKEN }}

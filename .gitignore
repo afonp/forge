@@ -22,5 +22,9 @@ target
 
 
 # Added by cargo
-
 /target
+
+# Docusaurus
+website/build/
+website/node_modules/
+website/.docusaurus/

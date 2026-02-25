@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "forge",
+    "description": "The title in the navbar"
+  },
+  "item.label.docs": {
+    "message": "docs",
+    "description": "Navbar item with label docs"
+  },
+  "item.label.github": {
+    "message": "github",
+    "description": "Navbar item with label github"
+  }
+}
