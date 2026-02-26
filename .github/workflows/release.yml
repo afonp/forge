@@ -86,7 +86,7 @@ jobs:
           AppPublisherURL=https://github.com/afonp/forge
           DefaultDirName={autopf}\forge
           DefaultGroupName=forge
-          OutputDir=.
+          OutputDir=..
           OutputBaseFilename=forge-${{ matrix.target }}-setup
           Compression=lzma
           SolidCompression=yes
@@ -94,7 +94,7 @@ jobs:
           PrivilegesRequired=lowest
 
           [Files]
-          Source: "target\${{ matrix.target }}\release\forge.exe"; DestDir: "{app}"; Flags: ignoreversion
+          Source: "..\target\${{ matrix.target }}\release\forge.exe"; DestDir: "{app}"; Flags: ignoreversion
 
           [Registry]
           Root: HKCU; Subkey: "Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}"; Check: NeedsAddPath('{app}')
