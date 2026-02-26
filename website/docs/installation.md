@@ -6,11 +6,36 @@ sidebar_position: 2
 
 ## cargo (recommended)
 
-if you have rust installed, you can install forge directly from crates.io:
+if you have rust installed:
 
 ```bash
 cargo install forge-cp
 ```
+
+## homebrew (macos / linux)
+
+```bash
+brew tap afonp/tap
+brew install forge
+```
+
+## windows installer
+
+download `forge-x86_64-pc-windows-msvc-setup.exe` from the [latest release](https://github.com/afonp/forge/releases/latest) and run it. it adds `forge` to your PATH automatically.
+
+## pre-built binaries
+
+download the archive for your platform from the [releases page](https://github.com/afonp/forge/releases/latest):
+
+| platform | file |
+|----------|------|
+| linux x86_64 | `forge-x86_64-unknown-linux-gnu.tar.gz` |
+| linux aarch64 | `forge-aarch64-unknown-linux-gnu.tar.gz` |
+| macos intel | `forge-x86_64-apple-darwin.tar.gz` |
+| macos apple silicon | `forge-aarch64-apple-darwin.tar.gz` |
+| windows x86_64 | `forge-x86_64-pc-windows-msvc.zip` |
+
+extract and place the `forge` binary somewhere in your `$PATH`.
 
 ## building from source
 
@@ -20,20 +45,7 @@ cd forge
 cargo install --path .
 ```
 
-## pre-built binaries
-
-download the latest release for your platform from the [releases page](https://github.com/afonp/forge/releases).
-
-available platforms:
-- **linux**: x86_64, aarch64
-- **macos**: x86_64, aarch64 (apple silicon)
-- **windows**: x86_64
-
-extract the archive and place the `forge` binary somewhere in your `$PATH`.
-
 ## requirements
 
-- **rust** (for cargo install): 1.70+
-- **g++**: required for compiling your c++ solutions via the generated makefile
-- **make**: required for the generated makefile targets
-- **git**: forge uses libgit2 internally, but having git installed is useful for manual operations
+- **g++** — compiles your c++ solutions via the generated makefile
+- **make** — runs the makefile targets
