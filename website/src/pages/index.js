@@ -28,7 +28,7 @@ function Hero() {
   const [copied, setCopied] = useState(false);
 
   const copyInstall = () => {
-    navigator.clipboard.writeText('cargo install forge');
+    navigator.clipboard.writeText('cargo install forge-cp');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
@@ -44,7 +44,7 @@ function Hero() {
         </p>
 
         <div className="install-command" onClick={copyInstall} title="click to copy">
-          <code>$ cargo install forge</code>
+          <code>$ cargo install forge-cp</code>
           {copied && <span style={{marginLeft: '0.5rem', color: '#10b981'}}> copied!</span>}
         </div>
 
@@ -66,10 +66,10 @@ function Terminal() {
     <section className="container" style={{padding: '2rem 0'}}>
       <div className="terminal">
         <div><span className="prompt">$</span> forge new cf1900 a b c d</div>
-        <div className="success">[✓] created: ~/cp/exercises/cf1900_a</div>
-        <div className="success">[✓] created: ~/cp/exercises/cf1900_b</div>
-        <div className="success">[✓] created: ~/cp/exercises/cf1900_c</div>
-        <div className="success">[✓] created: ~/cp/exercises/cf1900_d</div>
+        <div className="success">[✓] created: ./cf1900_a</div>
+        <div className="success">[✓] created: ./cf1900_b</div>
+        <div className="success">[✓] created: ./cf1900_c</div>
+        <div className="success">[✓] created: ./cf1900_d</div>
         <div className="success">[✓] committed: add contest cf1900 (a, b, c, d)</div>
       </div>
     </section>
@@ -134,7 +134,7 @@ function Install() {
       <div style={{maxWidth: '600px', margin: '0 auto'}}>
         <pre style={{padding: '1rem', borderRadius: '8px'}}>
           <code>{`# install via cargo
-cargo install forge
+cargo install forge-cp
 
 # create a single exercise
 forge new two-sum

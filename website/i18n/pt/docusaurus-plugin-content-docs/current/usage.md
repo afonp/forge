@@ -13,7 +13,7 @@ forge new two-sum
 output:
 
 ```
-[✓] created: ~/cp/exercises/two-sum
+[✓] created: ./two-sum
     solution.cpp   your solution
     Makefile       make / make run / make test / make debug
     input.txt      paste test input here
@@ -67,7 +67,7 @@ executa `make clean` no diretorio do exercicio e faz commit da alteracao.
 uma vez criado o exercicio, usa o makefile:
 
 ```bash
-cd ~/cp/exercises/two-sum
+cd ./two-sum
 
 # compilar
 make

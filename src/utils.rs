@@ -1,12 +1,9 @@
 use colored::Colorize;
 use std::path::PathBuf;
 
-/// returns ~/cp/exercises/
+/// returns the current working directory
 pub fn exercises_dir() -> PathBuf {
-    dirs::home_dir()
-        .expect("could not resolve home directory")
-        .join("cp")
-        .join("exercises")
+    std::env::current_dir().expect("could not resolve current directory")
 }
 
 /// returns ~/.cp/templates/template.cpp

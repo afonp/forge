@@ -8,10 +8,8 @@ sidebar_position: 5
 
 | caminho | descricao |
 |---------|-----------|
-| `~/cp/exercises/` | todos os exercicios ficam aqui |
+| `./` | todos os exercicios ficam no diretorio atual |
 | `~/.cp/templates/template.cpp` | o template c++ global |
-
-no windows, `~` refere-se a `%USERPROFILE%` (normalmente `C:\Users\<username>`).
 
 ## personalizar o template
 
@@ -34,7 +32,7 @@ forge new test-reset
 
 ## comportamento do git
 
-forge gere automaticamente um repositorio git dentro de `~/cp/exercises/`:
+forge gere automaticamente um repositorio git no diretorio atual:
 
 - na primeira execucao, se o diretorio nao for um repo git, forge inicializa um
 - apos `forge new`: todos os novos ficheiros sao staged e committed

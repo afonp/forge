@@ -1,7 +1,41 @@
+#if defined(__GNUC__) && !defined(__clang__)
 #pragma GCC optimize("O2,unroll-loops")
 #pragma GCC target("avx2,bmi,bmi2,popcnt")
+#endif
 
+#ifdef __has_include
+#if __has_include(<bits/stdc++.h>)
 #include <bits/stdc++.h>
+#else
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <string>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <stack>
+#include <deque>
+#include <bitset>
+#include <numeric>
+#include <cmath>
+#include <cassert>
+#include <functional>
+#include <climits>
+#include <cstring>
+#include <tuple>
+#include <array>
+#include <complex>
+#include <iomanip>
+#include <sstream>
+#include <random>
+#include <chrono>
+#endif
+#else
+#include <bits/stdc++.h>
+#endif
 using namespace std;
 
 // type aliases

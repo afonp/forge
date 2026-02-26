@@ -13,7 +13,7 @@ forge new two-sum
 output:
 
 ```
-[✓] created: ~/cp/exercises/two-sum
+[✓] created: ./two-sum
     solution.cpp   your solution
     Makefile       make / make run / make test / make debug
     input.txt      paste test input here
@@ -33,10 +33,10 @@ this creates `cf1900_a`, `cf1900_b`, `cf1900_c`, `cf1900_d` as separate exercise
 output:
 
 ```
-[✓] created: ~/cp/exercises/cf1900_a
-[✓] created: ~/cp/exercises/cf1900_b
-[✓] created: ~/cp/exercises/cf1900_c
-[✓] created: ~/cp/exercises/cf1900_d
+[✓] created: ./cf1900_a
+[✓] created: ./cf1900_b
+[✓] created: ./cf1900_c
+[✓] created: ./cf1900_d
 [✓] committed: add contest cf1900 (a, b, c, d)
 ```
 
@@ -86,7 +86,7 @@ runs `make clean` in the exercise directory and commits the change.
 once an exercise is created, use the makefile:
 
 ```bash
-cd ~/cp/exercises/two-sum
+cd ./two-sum
 
 # compile
 make

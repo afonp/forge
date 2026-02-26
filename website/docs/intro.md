@@ -17,7 +17,7 @@ forge new two-sum
 this creates:
 
 ```
-~/cp/exercises/two-sum/
+./two-sum/
 ├── solution.cpp    # your solution (from the c++ template)
 ├── Makefile        # make / make run / make test / make debug
 ├── input.txt       # paste test input here
@@ -42,7 +42,7 @@ the built-in c++ template includes:
 
 ```bash
 # install
-cargo install forge
+cargo install forge-cp
 
 # create your first exercise
 forge new hello-world

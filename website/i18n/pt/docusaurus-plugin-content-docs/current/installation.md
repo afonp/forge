@@ -9,7 +9,7 @@ sidebar_position: 2
 se tens rust instalado, podes instalar forge diretamente do crates.io:
 
 ```bash
-cargo install forge
+cargo install forge-cp
 ```
 
 ## compilar a partir do codigo fonte

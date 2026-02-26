@@ -69,11 +69,66 @@ jobs:
         run: |
           Compress-Archive -Path target/${{ matrix.target }}/release/forge.exe -DestinationPath forge-${{ matrix.target }}.zip
 
+      - name: create windows installer
+        if: matrix.target == 'x86_64-pc-windows-msvc'
+        shell: pwsh
+        run: |
+          $version = "${{ github.ref_name }}".TrimStart("v")
+          $installerDir = "installer"
+          New-Item -ItemType Directory -Force -Path $installerDir
+
+          # create inno setup script
+          @"
+          [Setup]
+          AppName=forge
+          AppVersion=$version
+          AppPublisher=afonp
+          AppPublisherURL=https://github.com/afonp/forge
+          DefaultDirName={autopf}\forge
+          DefaultGroupName=forge
+          OutputDir=.
+          OutputBaseFilename=forge-${{ matrix.target }}-setup
+          Compression=lzma
+          SolidCompression=yes
+          ChangesEnvironment=yes
+          PrivilegesRequired=lowest
+
+          [Files]
+          Source: "target\${{ matrix.target }}\release\forge.exe"; DestDir: "{app}"; Flags: ignoreversion
+
+          [Registry]
+          Root: HKCU; Subkey: "Environment"; ValueType: expandsz; ValueName: "Path"; ValueData: "{olddata};{app}"; Check: NeedsAddPath('{app}')
+
+          [Code]
+          function NeedsAddPath(Param: string): boolean;
+          var
+            OrigPath: string;
+          begin
+            if not RegQueryStringValue(HKEY_CURRENT_USER, 'Environment', 'Path', OrigPath) then
+            begin
+              Result := True;
+              exit;
+            end;
+            Result := Pos(';' + Param + ';', ';' + OrigPath + ';') = 0;
+          end;
+          "@ | Out-File -FilePath "$installerDir\forge.iss" -Encoding UTF8
+
+          # install inno setup
+          choco install innosetup --yes --no-progress
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "$installerDir\forge.iss"
+
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: forge-${{ matrix.target }}
           path: forge-${{ matrix.target }}.${{ matrix.archive }}
+
+      - name: upload installer
+        if: matrix.target == 'x86_64-pc-windows-msvc'
+        uses: actions/upload-artifact@v4
+        with:
+          name: forge-${{ matrix.target }}-setup
+          path: forge-${{ matrix.target }}-setup.exe
 
   publish-crate:
     needs: build
@@ -97,7 +152,7 @@ jobs:
       - name: compute checksums
         run: |
           cd artifacts
-          find . -type f \( -name "*.tar.gz" -o -name "*.zip" \) -exec sha256sum {} \; | sort > ../checksums.txt
+          find . -type f \( -name "*.tar.gz" -o -name "*.zip" -o -name "*.exe" \) -exec sha256sum {} \; | sort > ../checksums.txt
           cd ..
 
       - name: create release
@@ -112,7 +167,7 @@ jobs:
 
             ### cargo
             ```
-            cargo install forge
+            cargo install forge-cp
             ```
 
             ### homebrew (macos/linux)
@@ -125,6 +180,9 @@ jobs:
             ```
             winget install afonp.forge
             ```
+
+            ### windows installer
+            download `forge-x86_64-pc-windows-msvc-setup.exe` from the assets below and run it. it adds `forge` to your PATH automatically.
 
             ### download binary
             download the archive for your platform from the assets below, extract it, and place the `forge` binary in your `$PATH`.
@@ -149,5 +207,5 @@ jobs:
       - uses: vedantmgoyal9/winget-releaser@v2
         with:
           identifier: afonp.forge
-          installers-regex: 'forge-x86_64-pc-windows-msvc\.zip'
+          installers-regex: 'forge-x86_64-pc-windows-msvc-setup\.exe'
           token: ${{ secrets.WINGET_TOKEN }}

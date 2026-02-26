@@ -8,7 +8,7 @@ sidebar_position: 5
 
 | path | description |
 |------|-------------|
-| `~/cp/exercises/` | all exercises live here |
+| current directory | exercises are created in the directory where you run forge |
 | `~/.cp/templates/template.cpp` | the global c++ template |
 
 on windows, `~` refers to `%USERPROFILE%` (usually `C:\Users\<username>`).
@@ -34,7 +34,7 @@ forge new test-reset
 
 ## git behavior
 
-forge automatically manages a git repository inside `~/cp/exercises/`:
+forge automatically manages a git repository in the current directory:
 
 - on first run, if the directory is not a git repo, forge initializes one
 - after `forge new`: all new files are staged and committed
