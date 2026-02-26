@@ -10,5 +10,5 @@ repository = "https://github.com/afonp/forge"
 clap = { version = "4", features = ["derive"] }
 colored = "2"
 dirs = "5"
-git2 = "0.19"
+git2 = { version = "0.19", features = ["vendored-openssl"] }
 chrono = "0.4"

@@ -10,11 +10,8 @@ const config = {
     v4: true,
   },
 
-  url: 'https://afonp.github.io',
-  baseUrl: '/forge/',
-
-  organizationName: 'afonp',
-  projectName: 'forge',
+  url: 'https://forge.afpereira.me',
+  baseUrl: '/',
 
   onBrokenLinks: 'throw',
 
