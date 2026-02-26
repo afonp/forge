@@ -8,6 +8,9 @@ competitive programming exercise scaffolder with a c++ template system.
 # install
 cargo install forge-cp
 
+# install dependencies (g++, make) — auto-detects your os
+forge setup
+
 # create an exercise
 forge new two-sum
 
@@ -59,6 +62,7 @@ forge new <contest> a b c d     # create multiple problems for a contest
 forge list                      # list exercises in the current directory
 forge open <name>               # open in $EDITOR or vs code
 forge clean <name>              # remove compiled binaries (make clean)
+forge setup                     # install dependencies (g++, make)
 ```
 
 ### flags

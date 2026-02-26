@@ -45,6 +45,9 @@ enum Commands {
         /// exercise name
         name: String,
     },
+
+    /// check and install dependencies (g++, make)
+    Setup,
 }
 
 fn main() {
@@ -66,5 +69,6 @@ fn main() {
         Commands::List => commands::list::run(),
         Commands::Open { name } => commands::open::run(&name),
         Commands::Clean { name } => commands::clean::run(&name),
+        Commands::Setup => commands::setup::run(),
     }
 }
