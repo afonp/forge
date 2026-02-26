@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# instalacao
+# instalação
 
 ## cargo (recomendado)
 
@@ -21,11 +21,11 @@ brew install forge
 
 ## instalador windows
 
-faz download de `forge-x86_64-pc-windows-msvc-setup.exe` da [ultima release](https://github.com/afonp/forge/releases/latest) e executa. adiciona `forge` ao teu PATH automaticamente.
+faz download de `forge-x86_64-pc-windows-msvc-setup.exe` da [última release](https://github.com/afonp/forge/releases/latest) e executa. adiciona `forge` ao teu PATH automaticamente.
 
-## binarios pre-compilados
+## binários pré-compilados
 
-faz download do arquivo para a tua plataforma na [pagina de releases](https://github.com/afonp/forge/releases/latest):
+faz download do arquivo para a tua plataforma na [página de releases](https://github.com/afonp/forge/releases/latest):
 
 | plataforma | ficheiro |
 |------------|----------|
@@ -35,9 +35,9 @@ faz download do arquivo para a tua plataforma na [pagina de releases](https://gi
 | macos apple silicon | `forge-aarch64-apple-darwin.tar.gz` |
 | windows x86_64 | `forge-x86_64-pc-windows-msvc.zip` |
 
-extrai e coloca o binario `forge` algures no teu `$PATH`.
+extrai e coloca o binário `forge` algures no teu `$PATH`.
 
-## compilar a partir do codigo fonte
+## compilar a partir do código fonte
 
 ```bash
 git clone https://github.com/afonp/forge.git
@@ -45,7 +45,12 @@ cd forge
 cargo install --path .
 ```
 
-## requisitos
+## dependências
 
-- **g++** — compila as tuas solucoes c++ via o makefile gerado
-- **make** — executa os targets do makefile
+após instalar o forge, corre `forge setup` para instalar automaticamente as dependências necessárias (g++ e make).
+
+```bash
+forge setup
+```
+
+isto deteta o teu sistema operativo e instala tudo automaticamente.

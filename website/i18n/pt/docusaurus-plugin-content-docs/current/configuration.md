@@ -2,18 +2,20 @@
 sidebar_position: 5
 ---
 
-# configuracao
+# configuração
 
-## localizacao dos ficheiros
+## localização dos ficheiros
 
-| caminho | descricao |
+| caminho | descrição |
 |---------|-----------|
-| `./` | todos os exercicios ficam no diretorio atual |
+| `./` | os exercícios são criados no diretório atual |
 | `~/.cp/templates/template.cpp` | o template c++ global |
+
+no windows, `~` refere-se a `%USERPROFILE%` (normalmente `C:\Users\<username>`).
 
 ## personalizar o template
 
-o template c++ esta em `~/.cp/templates/template.cpp`. forge cria este ficheiro automaticamente na primeira execucao a partir do default embutido.
+o template c++ está em `~/.cp/templates/template.cpp`. forge cria este ficheiro automaticamente na primeira execução a partir do default embutido.
 
 para personalizar, basta editar o ficheiro:
 
@@ -21,9 +23,9 @@ para personalizar, basta editar o ficheiro:
 $EDITOR ~/.cp/templates/template.cpp
 ```
 
-cada novo exercicio usara o teu template personalizado a partir desse momento. exercicios existentes nao sao afetados.
+cada novo exercício usará o teu template personalizado a partir desse momento. exercícios existentes não são afetados.
 
-para repor o template default, apaga o ficheiro e forge recria-o no proximo `forge new`:
+para repor o template default, apaga o ficheiro e forge recria-o no próximo `forge new`:
 
 ```bash
 rm ~/.cp/templates/template.cpp
@@ -32,16 +34,16 @@ forge new test-reset
 
 ## comportamento do git
 
-forge gere automaticamente um repositorio git no diretorio atual:
+forge gere automaticamente um repositório git no diretório atual:
 
-- na primeira execucao, se o diretorio nao for um repo git, forge inicializa um
-- apos `forge new`: todos os novos ficheiros sao staged e committed
-- apos `forge clean`: as alteracoes sao staged e committed
-- as mensagens de commit sao sempre em minusculas, e.g. `add exercise two-sum`
+- na primeira execução, se o diretório não for um repo git, forge inicializa um
+- após `forge new`: todos os novos ficheiros são staged e committed
+- após `forge clean`: as alterações são staged e committed
+- as mensagens de commit são sempre em minúsculas, e.g. `add exercise two-sum`
 
-se as operacoes git falharem, forge avisa mas nao falha — o teu exercicio e criado na mesma.
+se as operações git falharem, forge avisa mas não falha — o teu exercício é criado na mesma.
 
-## integracao com editor
+## integração com editor
 
 o comando `forge open` e as flags `-c`/`-o` usam editores nesta prioridade:
 

@@ -2,9 +2,9 @@
 sidebar_position: 4
 ---
 
-# referencia do template c++
+# referência do template c++
 
-o template e automaticamente copiado para cada novo exercicio como `solution.cpp`. podes personaliza-lo editando `~/.cp/templates/template.cpp`.
+o template é automaticamente copiado para cada novo exercício como `solution.cpp`. podes personalizá-lo editando `~/.cp/templates/template.cpp`.
 
 ## pragmas do compilador
 
@@ -12,6 +12,8 @@ o template e automaticamente copiado para cada novo exercicio como `solution.cpp
 #pragma GCC optimize("O2,unroll-loops")
 #pragma GCC target("avx2,bmi,bmi2,popcnt")
 ```
+
+apenas ativados em gcc (ignorados automaticamente no clang/macos).
 
 ## type aliases
 
@@ -71,22 +73,22 @@ print(a, b, c);    // cout << a << ' ' << b << ' ' << c << '\n';
 printvec(v, " ");  // imprime elementos do vetor separados pelo separador dado
 ```
 
-## matematica
+## matemática
 
 ```cpp
 ll g = gcd(a, b);
 ll l = lcm(a, b);
-ll p = power(base, exp, mod);  // exponenciacao modular
+ll p = power(base, exp, mod);  // exponenciação modular
 ll inv = modinv(a, mod);       // inverso modular (mod tem de ser primo)
 ```
 
 ## graph
 
 ```cpp
-graph g(n);                        // cria um grafo com n vertices
+graph g(n);                        // cria um grafo com n vértices
 g.add_edge(u, v, w, directed);    // adiciona uma aresta
 vector<ll> dist = g.dijkstra(src); // caminhos mais curtos a partir de src
-vi dist = g.bfs(src);              // distancias bfs a partir de src
+vi dist = g.bfs(src);              // distâncias bfs a partir de src
 ```
 
 ## dsu (disjoint set union)
@@ -130,13 +132,13 @@ vi z = z_function(s);
 
 ```cpp
 void solve() {
-    // a tua solucao aqui
+    // a tua solução aqui
 }
 
 int main() {
     fast_io();
     int t = 1;
-    // cin >> t;  // descomentar para multiplos test cases
+    // cin >> t;  // descomentar para múltiplos test cases
     while (t--) solve();
     return 0;
 }

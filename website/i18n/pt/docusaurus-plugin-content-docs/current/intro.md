@@ -2,13 +2,13 @@
 sidebar_position: 1
 ---
 
-# introducao
+# introdução
 
-forge e um scaffolder de exercicios de programacao competitiva. cria pastas de exercicio com um template c++ de solucao, um makefile, ficheiros de teste e notas de problema — e faz commit de tudo automaticamente para git.
+forge é um scaffolder de exercícios de programação competitiva. cria pastas de exercício com um template c++ de solução, um makefile, ficheiros de teste e notas de problema — e faz commit de tudo automaticamente para git.
 
-## porque forge?
+## porquê forge?
 
-programacao competitiva envolve muita configuracao repetitiva: criar diretorios, copiar templates, escrever makefiles. forge automatiza tudo num unico comando.
+programação competitiva envolve muita configuração repetitiva: criar diretórios, copiar templates, escrever makefiles. forge automatiza tudo num único comando.
 
 ```bash
 forge new two-sum
@@ -18,7 +18,7 @@ isto cria:
 
 ```
 ./two-sum/
-├── solution.cpp    # a tua solucao (do template c++)
+├── solution.cpp    # a tua solução (do template c++)
 ├── Makefile        # make / make run / make test / make debug
 ├── input.txt       # cola o input de teste aqui
 ├── expected.txt    # cola o output esperado aqui
@@ -27,7 +27,7 @@ isto cria:
 
 e faz commit para git automaticamente.
 
-## o que esta no template?
+## o que está no template?
 
 o template c++ inclui:
 
@@ -36,17 +36,20 @@ o template c++ inclui:
 - **macros**: `all(x)`, `rep(i,a,b)`, `per(i,a,b)`, `each(x,v)`, `dbg(x)`
 - **estruturas de dados**: graph (dijkstra, bfs), dsu, segment tree, fenwick tree
 - **algoritmos de strings**: kmp, z-function
-- **matematica**: gcd, lcm, exponenciacao modular, inverso modular
+- **matemática**: gcd, lcm, exponenciação modular, inverso modular
 
-## inicio rapido
+## início rápido
 
 ```bash
 # instalar
 cargo install forge-cp
 
-# criar o primeiro exercicio
+# instalar dependências (g++, make)
+forge setup
+
+# criar o primeiro exercício
 forge new hello-world
 
-# criar um contest com varios problemas
+# criar um contest com vários problemas
 forge new cf1900 a b c d
 ```

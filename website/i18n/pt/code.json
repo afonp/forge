@@ -1,21 +1,21 @@
 {
   "homepage.meta.description": {
-    "message": "programacao competitiva, sem o boilerplate."
+    "message": "programação competitiva, sem o boilerplate."
   },
   "homepage.tagline": {
-    "message": "programacao competitiva, sem o boilerplate."
+    "message": "programação competitiva, sem o boilerplate."
   },
   "homepage.cta.getStarted": {
-    "message": "comecar"
+    "message": "começar"
   },
   "homepage.features.heading": {
     "message": "funcionalidades"
   },
   "homepage.feature.scaffold.title": {
-    "message": "scaffolding instantaneo"
+    "message": "scaffolding instantâneo"
   },
   "homepage.feature.scaffold.desc": {
-    "message": "cada exercicio recebe solution.cpp, Makefile, input.txt e notes.md — pronto a usar."
+    "message": "cada exercício recebe solution.cpp, Makefile, input.txt e notes.md — pronto a usar."
   },
   "homepage.feature.template.title": {
     "message": "template c++"
@@ -24,19 +24,19 @@
     "message": "template com graph, dsu, segtree, fenwick tree, kmp, z-function e mais."
   },
   "homepage.feature.git.title": {
-    "message": "commits automaticos"
+    "message": "commits automáticos"
   },
   "homepage.feature.git.desc": {
-    "message": "cada acao e automaticamente staged e committed. o teu progresso esta sempre tracked."
+    "message": "cada ação é automaticamente staged e committed. o teu progresso está sempre tracked."
   },
   "homepage.feature.crossplatform.title": {
     "message": "multiplataforma"
   },
   "homepage.feature.crossplatform.desc": {
-    "message": "funciona em macos, linux e windows. binario estatico unico, sem dependencias runtime."
+    "message": "funciona em macos, linux e windows. binário estático único, sem dependências runtime."
   },
   "homepage.install.heading": {
-    "message": "instalacao"
+    "message": "instalação"
   },
   "theme.ErrorPageContent.title": {
     "message": "Esta página deu erro.",

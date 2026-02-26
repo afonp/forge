@@ -2,9 +2,9 @@
 sidebar_position: 3
 ---
 
-# utilizacao
+# utilização
 
-## criar um exercicio
+## criar um exercício
 
 ```bash
 forge new two-sum
@@ -28,9 +28,9 @@ output:
 forge new cf1900 a b c d
 ```
 
-isto cria `cf1900_a`, `cf1900_b`, `cf1900_c`, `cf1900_d` como exercicios separados.
+isto cria `cf1900_a`, `cf1900_b`, `cf1900_c`, `cf1900_d` como exercícios separados.
 
-## abrir no editor apos criacao
+## abrir no editor após criação
 
 ```bash
 # abrir no vs code
@@ -40,13 +40,13 @@ forge new two-sum -c
 forge new two-sum -o
 ```
 
-## listar exercicios
+## listar exercícios
 
 ```bash
 forge list
 ```
 
-## abrir um exercicio
+## abrir um exercício
 
 ```bash
 forge open two-sum
@@ -54,17 +54,25 @@ forge open two-sum
 
 tenta `$EDITOR` primeiro, depois `code` (vs code), depois imprime o caminho.
 
-## limpar binarios
+## limpar binários
 
 ```bash
 forge clean two-sum
 ```
 
-executa `make clean` no diretorio do exercicio e faz commit da alteracao.
+executa `make clean` no diretório do exercício e faz commit da alteração.
 
-## trabalhar com exercicios
+## instalar dependências
 
-uma vez criado o exercicio, usa o makefile:
+```bash
+forge setup
+```
+
+verifica se tens g++ e make instalados. se não tiveres, instala automaticamente.
+
+## trabalhar com exercícios
+
+uma vez criado o exercício, usa o makefile:
 
 ```bash
 cd ./two-sum
@@ -81,6 +89,6 @@ make test
 # compilar com flags de debug e executar com input.txt
 make debug
 
-# remover binarios compilados
+# remover binários compilados
 make clean
 ```

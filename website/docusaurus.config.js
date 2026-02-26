@@ -86,7 +86,7 @@ const config = {
             ],
           },
         ],
-        copyright: `built by afonso`,
+        copyright: `made by <a href="https://github.com/afonp" target="_blank" rel="noopener noreferrer">afonso pereira</a>`,
       },
       prism: {
         theme: prismThemes.github,
